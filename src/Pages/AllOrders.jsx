@@ -1,40 +1,18 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../context/AuthProvider'
+import React, { useEffect, useState } from 'react'
 
 export default function AllOrders() {
-    // const { orders, setOrders } = useContext(AuthContext)
     const [page, setPage] = useState(0)
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(1)
 
     const [orders, setOrders] = useState([])
     useEffect(() => {
         fetch('/ordersInfo.json')
             .then(res => res.json())
             .then(data => {
-                setCount((data.length / 5));
-                switch (page) {
-                    case 0:
-                        setOrders(data.slice(0, 5))
-                        break;
-                    case 1:
-                        setOrders(data.slice(5, 10))
-                        break;
-                    case 2:
-                        setOrders(data.slice(10, 15))
-                        break;
-                    case 3:
-                        setOrders(data.slice(15, 20))
-                        break;
-                    case 4:
-                        setOrders(data.slice(20, 25))
-                        break;
-                    default:
-                        setOrders(data.slice(0, 5))
-                        break;
-                }
+                setCount(Math.ceil(data.length / 5));
+                setOrders(data.slice(page * 5, page * 5 + 5))
             })
-        console.log(page);
     }, [page])
     return (
         <div className=' '>
@@ -79,7 +57,7 @@ export default function AllOrders() {
                 {
                     [...Array(count).keys()].map(number => <button
                         key={ number }
-                        className={ page == number ? ' bg-red-500 p-3 rounded-lg font-bold focus:outline-none' : ' bg-gray-400 text-black p-3 mx-1 rounded-lg font-bold' }
+                        className={ page === number ? ' bg-red-500 p-3 rounded-lg font-bold focus:outline-none' : ' bg-gray-400 text-black p-3 mx-1 rounded-lg font-bold' }
                         onClick={ () => setPage(number) }
                     >
                         { number + 1 }
