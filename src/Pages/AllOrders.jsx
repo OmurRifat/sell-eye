@@ -29,13 +29,12 @@ export default function AllOrders() {
                         <th>Delivery Type</th>
                         <th>Order Status</th>
                         <th>Order Total</th>
-                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         orders?.map(order => (
-                            <tr key={ order.orderId }>
+                            <tr className=' hover:bg-slate-700' key={ order.orderId }>
                                 <td>{ order.orderId }</td>
                                 <td>{ order.customerName }</td>
                                 <td>{ order.deliveryAddress }</td>
@@ -45,9 +44,6 @@ export default function AllOrders() {
                                 <td>{ order.deliveryType }</td>
                                 <td>{ order.orderStatus }</td>
                                 <td>{ parseInt(order.orderTotal) }</td>
-                                <td>
-                                    <button className="btn btn-sm btn-primary">Details</button>
-                                </td>
                             </tr>
                         ))
                     }

@@ -19,7 +19,6 @@ export default function RegularDelivery() {
                         <th>Delivery Type</th>
                         <th>Order Status</th>
                         <th>Order Total</th>
-                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,9 +34,6 @@ export default function RegularDelivery() {
                                 <td>{ order.deliveryType }</td>
                                 <td>{ order.orderStatus }</td>
                                 <td>{ parseInt(order.orderTotal) }</td>
-                                <td>
-                                    <button className="btn btn-sm btn-primary">Details</button>
-                                </td>
                             </tr>
                         ))
                     }
