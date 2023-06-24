@@ -24,7 +24,7 @@ export default function ExpressDelivery() {
                 <tbody>
                     {
                         orders?.filter(order => order.deliveryType === 'Express').map(order => (
-                            <tr key={ order.orderId }>
+                            <tr className=' hover:bg-slate-700' key={ order.orderId }>
                                 <td>{ order.orderId }</td>
                                 <td>{ order.customerName }</td>
                                 <td>{ order.deliveryAddress }</td>

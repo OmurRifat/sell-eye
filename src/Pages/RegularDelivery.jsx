@@ -24,7 +24,7 @@ export default function RegularDelivery() {
                 <tbody>
                     {
                         orders?.filter(order => order.deliveryType === 'Regular').map(order => (
-                            <tr key={ order.orderId }>
+                            <tr className=' hover:bg-slate-700' key={ order.orderId }>
                                 <td>{ order.orderId }</td>
                                 <td>{ order.customerName }</td>
                                 <td>{ order.deliveryAddress }</td>
