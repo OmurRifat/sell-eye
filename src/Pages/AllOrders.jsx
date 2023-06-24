@@ -1,18 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../context/AuthProvider'
 
 export default function AllOrders() {
-    const [orders, setOrders] = useState([])
-    useEffect(() => {
-        fetch('/ordersInfo.json')
-            .then(res => res.json())
-            .then(data => setOrders(data))
-        console.log(orders);
-    }, [])
+    const { orders, setOrders } = useContext(AuthContext)
     return (
         <div>
             {/* create a table */ }
-            <table className="table w-full">
+            <table className="table w-full bg-tertiary bg-opacity-30">
                 <thead>
                     <tr>
                         <th>Order ID</th>
