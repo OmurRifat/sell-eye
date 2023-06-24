@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../context/AuthProvider'
 
 export default function ExpressDelivery() {
-    const { orders, setOrders } = useContext(AuthContext)
+    const { orders } = useContext(AuthContext)
     return (
         <div>
             {/* create a table */ }
